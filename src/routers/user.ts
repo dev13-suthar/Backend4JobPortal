@@ -70,7 +70,7 @@ router.post("/signin",async(req,res)=>{
 })
 
 
-// Profile SUmmaray
+// Profile SUmmaray // need to change these also
 router.post("/profileSummary",authMiddleware,async(req,res)=>{
     try {
         const userId = req.userId;
@@ -176,6 +176,8 @@ router.post("/newJob",authMiddleware,empMiddleware,async(req,res)=>{
         session.startTransaction();
         try {
             const newJob = new Jobs({
+                //referLink:Link to original job;
+                jobLink:parsedData.data?.jobLink,
                 title:parsedData.data?.title,
                 description:parsedData.data?.description,
                 role:parsedData.data?.role,
@@ -223,7 +225,7 @@ router.post("/newJob",authMiddleware,empMiddleware,async(req,res)=>{
     }
 })
 
-// Apply to JOb
+// Apply to JOb // remove these shit
 router.post("/apply",authMiddleware,async(req,res)=>{
     try{
         const userId = req.userId;

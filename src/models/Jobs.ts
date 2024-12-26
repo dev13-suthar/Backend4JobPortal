@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-
+//New Field Reference link or Link to original job website
 const jobSchema = new mongoose.Schema({
     title:{
         type:String,
@@ -18,6 +18,10 @@ const jobSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         required:false,
         ref:"User"
+    },
+    jobLink:{
+        type:String,
+        required:true,
     },
     companyLocation:{
         type:String,

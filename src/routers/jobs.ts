@@ -15,6 +15,8 @@ router.get("/multiJob",authMiddleware,async(req,res)=>{
     try {
         const { location, role, sort,locationType,salary} = req.query;
         let filter:any = {};
+        const userId = req.userId;
+        filter.createdBy = { $ne: userId };
         if(location){
             filter.companyLocation = { $regex: location, $options: "i" }
         }
